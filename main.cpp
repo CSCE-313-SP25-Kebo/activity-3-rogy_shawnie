@@ -63,10 +63,10 @@ int main(int argc, char *argv[])
         IF WIFEXITED, PRINT THE MESSAGE "The child process exited normally" WITH ENDLINE
         IF WIFSIGNALED, PRINT THE MESSAGE "The child process exited due to the kill signal" WITH ENDLINE
         */
-       if(status == 0){
+       if(WIFEXITED(status)){
         cout << "The child process exited normally" << endl;
        }
-       else{
+       else if(WIFSIGNALED(status)){
         cout << "The child process exited due to the kill signal" << endl; 
        }
     }
